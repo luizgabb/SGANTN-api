@@ -1,17 +1,15 @@
-version: '3.8'
-
 services:
   db:
     image: postgres:15-alpine
-    container_name: agendamentos-db
+    container_name: agendamentos-db-final
     environment:
-      POSTGRES_USER: user_agendamento
-      POSTGRES_PASSWORD: password_agendamento
-      POSTGRES_DB: db_agendamento
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=db_agendamento
     ports:
-      - "5432:5432"
+      - "5434:5432"
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - pgdata_novo:/var/lib/postgresql/data
 
 volumes:
-  pgdata:
+  pgdata_novo:
