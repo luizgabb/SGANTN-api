@@ -1,12 +1,13 @@
 package com.projects.gabriel.SGANTN_api.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
-import javax.xml.crypto.Data;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "agendamento")
+@Data
 public class Agendamento {
 
     @Id
