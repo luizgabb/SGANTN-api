@@ -68,12 +68,12 @@ public class AgendamentoController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Agendamento>> listarAgendamentos(@RequestBody Agendamento agendamento) {
+    public ResponseEntity<List<Agendamento>> listarAgendamentos() {
         List<Agendamento> agendamentos = agendamentoRepository.findAll();
         return ResponseEntity.ok(agendamentos);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> cancelarAgendamento(@PathVariable Long id) {
         if (!agendamentoRepository.existsById(id)) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Agendamento não encontrado para exclusão.");
